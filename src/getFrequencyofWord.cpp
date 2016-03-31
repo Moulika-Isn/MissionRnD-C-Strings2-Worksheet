@@ -12,9 +12,34 @@ Note: Dont modify original str or word,Just return count ,Spaces can also be par
 
 #include <stdlib.h>
 
-int count_word_in_str_way_1(char *str, char *word){
-	return 0;
+int length(char *str)
+{
+	int i = 0;
+	while (*(str + i) != '\0')
+		i++;
+	return i;
 }
+int count_word_in_str_way_1(char *str, char *word){
+	int n = 0, m = 0, i, j, count = 0, k = 0;
+	n = length(str);
+	m = length(word);
+	for (i = 0; i < n; i++)
+	{
+		if(str[i]==word[0])
+		{
+			for (j = i, k = 0;k<m; j++,k++)
+			{
+				if (str[j] != word[k])
+					break;
+				if (k == m-1)
+					count++;
+			}
+		}
+	}
+	return count;
+}
+
+
 
 int count_word_int_str_way_2_recursion(char *str, char *word){
 	return 0;
