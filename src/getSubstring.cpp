@@ -18,6 +18,20 @@ original String
 #include <stdlib.h>
 
 char * get_sub_string(char *str, int i, int j){
-
-    return NULL;
+	if ((str == NULL) || (i<0) || (j<0) || (i>j))
+		return NULL;
+	int len = 0, k = 0;
+	while (*(str + len) != '\0')
+		len++;
+	if ((i >= len) || (j >= len))
+		return NULL;
+	char *substr = (char*)malloc(10*sizeof(char*));
+	while (i <= j)
+	{
+		*(substr + k) = *(str + i);
+		k++;
+		i++;
+	}
+	*(substr + k) = '\0';
+	return substr;
 }
